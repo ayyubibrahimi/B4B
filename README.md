@@ -1,2 +1,2 @@
-# g2b
-Mobile app designed to facilitate access to the health care sector
+# G2B
+Mobile app designed to facilitate greater access to health care
