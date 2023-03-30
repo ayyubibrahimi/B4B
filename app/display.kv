@@ -1,0 +1,202 @@
+ScreenManager:
+    WelcomeWindow:
+    RegistrationWindow:
+    ProfileWindow: 
+    AppointmentWindow
+
+
+<WelcomeWindow>
+    name: "welcome"
+    id: my_widget
+
+    MDCard:
+        size_hint: None, None
+        size: 300, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDLabel:
+            id: welcome_label
+            text: "B4B"
+            font_size: 20
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 15
+            color: (.3, .7, .5, 1)
+            bold: True
+            outline_color: (0,0,0,1)
+        
+        MDTextField:
+            id: user
+            helper_text: "Username"
+            helper_text_mode: "persistent"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": .5}
+
+        MDTextField:
+            id: password
+            helper_text: "Password"
+            helper_text_mode: "persistent"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": .5}
+            password: True
+            
+        
+        MDRoundFlatButton:
+            text: "Log-In"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+        
+        MDRoundFlatButton:
+            text: "Register Now"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "registration"
+                root.manager.transition.direction = "left"
+
+
+
+<RegistrationWindow>
+    name: "registration"
+    id: my_widget
+
+    MDCard:
+        size_hint: None, None
+        size: 300, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDTextField:
+            id: name
+            helper_text: "Enter your first name"
+            helper_text_mode: "persistent"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": .5}
+
+        MDTextField:
+            id: password
+            helper_text: "Enter your password"
+            helper_text_mode: "persistent"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": .5}
+        
+        MDTextField:
+            id: email
+            helper_text: "Enter your email"
+            helper_text_mode: "persistent"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": .5}
+
+
+        MDRoundFlatButton:
+            text: "Register"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+
+        
+        MDRoundFlatButton:
+            text: "Return to Home"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "welcome"
+                root.manager.transition.direction = "left"
+
+
+<ProfileWindow>
+    name: "profile"
+    
+    BoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "B4B"
+            left_action_items: [["menu", lambda x: app.callback()]]
+            left_action_items: [["dots-vertical"]]
+            md_bg_color: .3, .3, .3, .3
+            specific_text_color: 1, 1, 1, 1
+   
+
+        MDBottomNavigation:
+            panel_color: .3, .3, .3, .3
+
+            MDBottomNavigationItem:
+                name: "screen 1"
+                text: "My Account"
+                icon: "account"
+
+                MDRaisedButton:
+                    text: "Log Out"
+                    md_bg_color: 1, 0, 1, .5
+                    pos_hint: {"center_x": .9, "center_y": .9}
+                    line_color: 0, 0, 0, 0
+                    on_release: 
+                        app.root.current = "welcome"
+                        root.manager.transition.direction = "left"
+
+            
+            MDBottomNavigationItem:
+                name: "screen 2"
+                text: "Providers"
+                icon: "store"
+            
+            MDBottomNavigationItem:
+                name: "screen 3"
+                text: "Appointments"
+                icon: "hospital"
+
+                MDRaisedButton:
+                    text: "Make an appointment"
+                    md_bg_color: 1, 0, 1, .5
+                    pos_hint: {"center_x": .9, "center_y": .9}
+                    line_color: 0, 0, 0, 0
+                    on_release: 
+                        app.root.current = "appointment"
+                        root.manager.transition.direction = "left"
+
+
+<AppointmentWindow>
+    name: "appointment"
+    orientation: 'vertical'
+
+
+    VKeyboard:
+        id: keyboard
+    
+        
+
+<RoundedButton@Button>
+    background_color: (0, 0, 0, 0)
+    background_normal: ""
+    canvas.before:
+        Color: 
+            rgba: (50/255, 100/255, 173/255, 150/255)     
+        RoundedRectangle:
+            size: self.size 
+            pos: self.pos
+            radius: [100]
+            
+
