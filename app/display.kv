@@ -1,8 +1,16 @@
 ScreenManager:
     WelcomeWindow:
     RegistrationWindow:
+
     ProfileWindow: 
-    AppointmentWindow
+    ProviderOneWindow:
+    ProviderTwoWindow:
+    ProviderThreeWindow:
+    ProviderFourWindow:
+    ProviderFiveWindow:
+
+    AppointmentWindow:
+    
 
 
 <WelcomeWindow>
@@ -147,22 +155,162 @@ ScreenManager:
                 name: "screen 1"
                 text: "My Account"
                 icon: "account"
-
-                MDRaisedButton:
-                    text: "Log Out"
-                    md_bg_color: 1, 0, 1, .5
-                    pos_hint: {"center_x": .9, "center_y": .9}
-                    line_color: 0, 0, 0, 0
-                    on_release: 
-                        app.root.current = "welcome"
-                        root.manager.transition.direction = "left"
+                
+                MDFloatLayout:
+                    MDIconButton:
+                        icon: "close"
+                        pos_hint: {"right": 1, "top": 1}
+                        on_release: app.root.current = "welcome"
 
             
             MDBottomNavigationItem:
                 name: "screen 2"
                 text: "Providers"
                 icon: "store"
-            
+                ScrollView:
+                    GridLayout:
+                        cols: 1
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: 10
+                        padding: 10
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        Button:
+                            text: "Provider One"
+                            size_hint_y: None
+                            height: 100
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            canvas.before:
+                                Color:
+                                    rgba: 0.8, 0.8, 0.8, 1 
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                            canvas:
+                                Color:
+                                    rgba: 1, 1, 1, 1
+                                Rectangle:
+                                    texture: self.texture
+                                    size: self.texture_size
+                                    pos: int(self.center_x - self.texture_size[0] / 2), int(self.center_y - self.texture_size[1] / 2)
+                            font_size: '30sp'
+                            on_release: 
+                                app.root.current = "provider-one"
+                                root.manager.transition.direction = "left"
+                        Button:
+                            text: "Provider Dos"
+                            size_hint_y: None
+                            height: 100
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            canvas.before:
+                                Color:
+                                    rgba: 0.8, 0.8, 0.8, 1 
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                            canvas:
+                                Color:
+                                    rgba: 1, 1, 1, 1
+                                Rectangle:
+                                    texture: self.texture
+                                    size: self.texture_size
+                                    pos: int(self.center_x - self.texture_size[0] / 2), int(self.center_y - self.texture_size[1] / 2)
+                            font_size: '30sp'
+                            on_release: 
+                                app.root.current = "provider-two"
+                                root.manager.transition.direction = "left"
+                        Button:
+                            text: "Provider Three"
+                            size_hint_y: None
+                            height: 100
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            canvas.before:
+                                Color:
+                                    rgba: 0.8, 0.8, 0.8, 1 
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                            canvas:
+                                Color:
+                                    rgba: 1, 1, 1, 1
+                                Rectangle:
+                                    texture: self.texture
+                                    size: self.texture_size
+                                    pos: int(self.center_x - self.texture_size[0] / 2), int(self.center_y - self.texture_size[1] / 2)
+                            font_size: '30sp'
+                            on_release: 
+                                app.root.current = "provider-three"
+                                root.manager.transition.direction = "left"
+                        Button:
+                            text: "Provider Quatro"
+                            size_hint_y: None
+                            height: 100
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            canvas.before:
+                                Color:
+                                    rgba: 0.8, 0.8, 0.8, 1 
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                            canvas:
+                                Color:
+                                    rgba: 1, 1, 1, 1
+                                Rectangle:
+                                    texture: self.texture
+                                    size: self.texture_size
+                                    pos: int(self.center_x - self.texture_size[0] / 2), int(self.center_y - self.texture_size[1] / 2)
+                            font_size: '30sp'
+                            on_release: 
+                                app.root.current = "provider-four"
+                                root.manager.transition.direction = "left"
+                        Button:
+                            text: "Provider Five"
+                            size_hint_y: None
+                            height: 100
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            canvas.before:
+                                Color:
+                                    rgba: 0.8, 0.8, 0.8, 1 
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                            canvas:
+                                Color:
+                                    rgba: 1, 1, 1, 1
+                                Rectangle:
+                                    texture: self.texture
+                                    size: self.texture_size
+                                    pos: int(self.center_x - self.texture_size[0] / 2), int(self.center_y - self.texture_size[1] / 2)
+                            font_size: '30sp'
+                            on_release: 
+                                app.root.current = "provider-five"
+                                root.manager.transition.direction = "left"
+                    
             MDBottomNavigationItem:
                 name: "screen 3"
                 text: "Appointments"
@@ -178,16 +326,120 @@ ScreenManager:
                         root.manager.transition.direction = "left"
 
 
+<ProviderOneWindow>
+    name: "provider-one"
+    id: my_widget
+
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+
+
+<ProviderTwoWindow>
+    name: "provider-two"
+    orientation: 'vertical'
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+
+
+<ProviderThreeWindow>
+    name: "provider-two"
+    orientation: 'vertical'
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+
+
+<ProviderFourWindow>
+    name: "provider-two"
+    orientation: 'vertical'
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+
+
+<ProviderFiveWindow>
+    name: "provider-two"
+    orientation: 'vertical'
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+    
+
 <AppointmentWindow>
     name: "appointment"
     orientation: 'vertical'
 
-
     VKeyboard:
         id: keyboard
-    
-        
 
+        
 <RoundedButton@Button>
     background_color: (0, 0, 0, 0)
     background_normal: ""

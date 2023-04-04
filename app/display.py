@@ -20,10 +20,9 @@ from kivy.uix.label import Label
 from kivymd.uix.boxlayout import MDBoxLayout
 
 
+Window.size = (500, 500)
 
-Window.size = (700, 700)
-
-
+    
 class WelcomeWindow(Screen):
     def logger(self):
         self.ids.welcome_label.text = f"Welcome {self.ids.user.text}!"
@@ -47,12 +46,31 @@ class ProfileWindow(Screen):
     pass
 
 
-
 class AppointmentWindow(Screen):
     def show_keyboard(self, instance, value):
         if value:
             self.ids.keyboard.target = instance
             self.ids.keyboard.layout = 'qwerty'
+    
+
+class ProviderOneWindow(Screen):
+    pass
+    
+
+class ProviderTwoWindow(Screen):
+    pass
+    
+
+class ProviderThreeWindow(Screen):
+    pass
+    
+
+class ProviderFourWindow(Screen):
+    pass
+    
+
+class ProviderFiveWindow(Screen):
+    pass
     
 
 class B4B(MDApp):
@@ -63,7 +81,7 @@ class B4B(MDApp):
         self.theme_cls.primary_hue = "100"
         self.theme_cls.accent_hue = "900"
         return Builder.load_file("display.kv")
-    
+
 
 if __name__ == "__main__":
     B4B().run()
