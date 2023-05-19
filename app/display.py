@@ -9,7 +9,7 @@ from kivy.loader import Loader
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.uix.label import MDLabel
 from kivymd.uix.floatlayout import MDFloatLayout
-from kivymd.uix.pickers import MDTimePicker
+from kivymd.uix.pickers import MDTimePicker, MDDatePicker
 from kivymd.uix.button import MDRaisedButton
 from kivy.uix.vkeyboard import VKeyboard
 from kivy.uix.textinput import TextInput
@@ -18,12 +18,14 @@ from kivy.uix.vkeyboard import VKeyboard
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivymd.uix.boxlayout import MDBoxLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import ButtonBehavior
+from kivy.uix.popup import Popup
 
 
+Window.size = (500, 500)
 
-Window.size = (700, 700)
-
-
+    
 class WelcomeWindow(Screen):
     def logger(self):
         self.ids.welcome_label.text = f"Welcome {self.ids.user.text}!"
@@ -47,13 +49,50 @@ class ProfileWindow(Screen):
     pass
 
 
-
 class AppointmentWindow(Screen):
     def show_keyboard(self, instance, value):
         if value:
             self.ids.keyboard.target = instance
             self.ids.keyboard.layout = 'qwerty'
     
+
+class ProviderOneWindow(Screen):
+    pass
+    
+
+class ProviderTwoWindow(Screen):
+    pass
+    
+
+class ProviderThreeWindow(Screen):
+    pass
+    
+
+class ProviderFourWindow(Screen):
+    pass
+    
+
+class ProviderFiveWindow(Screen):
+    pass
+
+
+class AppointmentOneWindow(Screen):
+    def show_date_picker(self):
+        date_dialog = MDDatePicker()
+        date_dialog.open()
+
+    def show_time_picker(self):
+        time_dialog = MDTimePicker()
+        time_dialog.open()
+
+    def submit_appointment(self):
+        # Add your logic for submitting the appointment here
+        pass
+    
+
+class CustomButton(ButtonBehavior, BoxLayout):
+    pass
+
 
 class B4B(MDApp):
     def build(self):    
@@ -63,7 +102,7 @@ class B4B(MDApp):
         self.theme_cls.primary_hue = "100"
         self.theme_cls.accent_hue = "900"
         return Builder.load_file("display.kv")
-    
+
 
 if __name__ == "__main__":
     B4B().run()

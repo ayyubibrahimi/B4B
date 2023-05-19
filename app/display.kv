@@ -1,9 +1,17 @@
 ScreenManager:
     WelcomeWindow:
     RegistrationWindow:
-    ProfileWindow: 
-    AppointmentWindow
 
+    ProfileWindow: 
+    ProviderOneWindow:
+    ProviderTwoWindow:
+    ProviderThreeWindow:
+    ProviderFourWindow:
+    ProviderFiveWindow:
+
+    AppointmentOneWindow:
+    AppointmentWindow:
+    
 
 <WelcomeWindow>
     name: "welcome"
@@ -147,22 +155,132 @@ ScreenManager:
                 name: "screen 1"
                 text: "My Account"
                 icon: "account"
-
-                MDRaisedButton:
-                    text: "Log Out"
-                    md_bg_color: 1, 0, 1, .5
-                    pos_hint: {"center_x": .9, "center_y": .9}
-                    line_color: 0, 0, 0, 0
-                    on_release: 
-                        app.root.current = "welcome"
-                        root.manager.transition.direction = "left"
+                
+                MDFloatLayout:
+                    MDIconButton:
+                        icon: "close"
+                        pos_hint: {"right": 1, "top": 1}
+                        on_release: app.root.current = "welcome"
 
             
             MDBottomNavigationItem:
                 name: "screen 2"
                 text: "Providers"
                 icon: "store"
-            
+                ScrollView:
+                    GridLayout:
+                        cols: 1
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: 10
+                        padding: 10
+                        canvas:
+                            Color:
+                                rgba: 0, 0, 0, 1
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                        CustomButton:
+                            text: "Provider One"
+                            size_hint_y: None
+                            height: 200
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            on_release: 
+                                app.root.current = "provider-one"
+                                root.manager.transition.direction = "left"
+                            Image:
+                                source: 'photos/hospital_green.jpg'  # Replace with the actual image path
+                                size_hint: None, None
+                                size: self.parent.width, self.parent.height
+                                allow_stretch: True
+                                keep_ratio: False
+                                allow_stretch: True
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        CustomButton:
+                            text: "Provider Dos"
+                            size_hint_y: None
+                            height: 200
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            on_release: 
+                                app.root.current = "provider-two"
+                                root.manager.transition.direction = "left"
+                            Image:
+                                source: 'photos/hospital_green.jpg'  # Replace with the actual image path
+                                size_hint: None, None
+                                size: self.parent.width, self.parent.height
+                                allow_stretch: True
+                                keep_ratio: False
+                                allow_stretch: True
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        CustomButton:
+                            text: "Provider Tres"
+                            size_hint_y: None
+                            height: 200
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            on_release: 
+                                app.root.current = "provider-three"
+                                root.manager.transition.direction = "left"
+                            Image:
+                                source: 'photos/hospital_green.jpg'  # Replace with the actual image path
+                                size_hint: None, None
+                                size: self.parent.width, self.parent.height
+                                allow_stretch: True
+                                keep_ratio: False
+                                allow_stretch: True
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        CustomButton:
+                            text: "Provider Four"
+                            size_hint_y: None
+                            height: 200
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            on_release: 
+                                app.root.current = "provider-four"
+                                root.manager.transition.direction = "left"
+                            Image:
+                                source: 'photos/hospital_green.jpg'  # Replace with the actual image path
+                                size_hint: None, None
+                                size: self.parent.width, self.parent.height
+                                allow_stretch: True
+                                keep_ratio: False
+                                allow_stretch: True
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        CustomButton:
+                            text: "Provider Five"
+                            size_hint_y: None
+                            height: 200
+                            size_hint_x: 1
+                            halign: 'center'
+                            valign: 'middle'
+                            background_normal: ''
+                            background_color: 0.8, 0.8, 0.8, 1
+                            on_release: 
+                                app.root.current = "provider-five"
+                                root.manager.transition.direction = "left"
+                            Image:
+                                source: 'photos/hospital_green.jpg'  # Replace with the actual image path
+                                size_hint: None, None
+                                size: self.parent.width, self.parent.height
+                                allow_stretch: True
+                                keep_ratio: False
+                                allow_stretch: True
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    
             MDBottomNavigationItem:
                 name: "screen 3"
                 text: "Appointments"
@@ -177,17 +295,213 @@ ScreenManager:
                         app.root.current = "appointment"
                         root.manager.transition.direction = "left"
 
+<ProviderOneWindow>:
+    name: "provider-one"
+    id: my_widget
+
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDLabel:
+            text: "About Us"
+            font_style: "H6"
+            theme_text_color: "Secondary"
+            size_hint_y: None
+            height: self.texture_size[1]  # Adjust the height of the label based on the text size
+
+        MDLabel:
+            text: "Welcome to Provider One! We are a premier healthcare provider committed to delivering high-quality services to our patients. With a team of experienced healthcare professionals and state-of-the-art facilities, we strive to provide the best care possible. Our mission is to improve the health and well-being of individuals and communities. Thank you for choosing Provider One."
+            font_size: 14
+            size_hint_y: None
+            height: self.texture_size[1]  # Adjust the height of the label based on the text size
+        
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: None, None
+            size: 400, "48dp"
+            spacing: 25
+            pos_hint: {"center_x": .5}
+
+            MDRoundFlatButton:
+                text: "Return to Providers"
+                font_size: 12
+                on_release: 
+                    app.root.current = "profile"
+                    root.manager.transition.direction = "left"
+
+            MDRoundFlatButton:
+                text: "Make an Appointment"
+                font_size: 12
+                on_release: app.root.current = "appointment-one"
+
+
+<AppointmentOneWindow>:
+    name: "appointment-one"
+    id: my_widget
+
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: None, None
+            size: 400, 300
+            pos_hint: {"center_x": .5}
+            spacing: 20
+
+            GridLayout:
+                cols: 2
+                spacing: 10
+                size_hint: None, None
+                size: 200, "48dp"
+
+                Label:
+                    text: "Select Date:"
+                    font_size: 14
+
+                Button:
+                    id: date_button
+                    text: "Choose Date"
+                    font_size: 14
+                    on_release: my_widget.show_date_picker()
+
+            GridLayout:
+                cols: 2
+                spacing: 10
+                size_hint: None, None
+                size: 200, "48dp"
+
+                Label:
+                    text: "Select Time:"
+                    font_size: 14
+
+                Button:
+                    id: time_button
+                    text: "Choose Time"
+                    font_size: 14
+                    on_release: my_widget.show_time_picker()
+
+            Button:
+                text: "Submit Appointment"
+                font_size: 14
+                size_hint: None, None
+                size: 200, "48dp"
+                pos_hint: {"center_x": .5}
+                on_release: my_widget.submit_appointment()
+
+
+<ProviderTwoWindow>
+    name: "provider-two"
+    orientation: 'vertical'
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+
+
+<ProviderThreeWindow>
+    name: "provider-two"
+    orientation: 'vertical'
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+
+
+<ProviderFourWindow>
+    name: "provider-two"
+    orientation: 'vertical'
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+
+
+<ProviderFiveWindow>
+    name: "provider-two"
+    orientation: 'vertical'
+    MDCard:
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": .5, "center_y": .5}
+        elevation: 10
+        padding: 25
+        spacing: 25 
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "Return to Providers"
+            font_size: 12
+            pos_hint: {"center_x": .5}
+            on_release: 
+                app.root.current = "profile"
+                root.manager.transition.direction = "left"
+    
 
 <AppointmentWindow>
     name: "appointment"
     orientation: 'vertical'
 
-
     VKeyboard:
         id: keyboard
-    
-        
 
+        
 <RoundedButton@Button>
     background_color: (0, 0, 0, 0)
     background_normal: ""
